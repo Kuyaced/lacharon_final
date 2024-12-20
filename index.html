@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Portfolio of Jon Cedric Lacharon, a passionate developer and designer.">
+  <meta name="keywords" content="developer, designer, portfolio, projects, contact">
+  <title>Jon Cedric Lacharon</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+ /* Global Styles */
+ * {
+      margin: 20;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(to bottom, #0d1b2a, #1b263b);
+      color: #f8f9fa;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #007bff;
+    }
+
+    /* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 50px;
+  background: linear-gradient(135deg, #ffffff, #a0c4ff); /* White to light blue gradient */
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow to create depth */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Soft border for separation */
+  transition: all 0.3s ease-in-out;
+}
+
+header:hover {
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5); /* Enhanced shadow for hover effect */
+}
+
+/* Logo */
+.logo img {
+  width: 200px; /* Increased size */
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.08); /* Slight zoom effect on hover */
+  filter: brightness(1.2); /* Brighten the logo */
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  color: black;
+  letter-spacing: 1px;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: blue;
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+
+nav ul li a:hover::before {
+  transform: scaleX(1); /* Underline effect on hover */
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000; /* Change to black */
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: rotate(90deg); /* Rotation effect */
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+    background: linear-gradient(135deg, #ffffff, #a0c4ff); /* White to light blue gradient */
+    position: absolute;
+    top: 65px;
+    right: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow for mobile menu */
+    width: 140px;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+
+  /* Mobile menu links */
+  nav ul li a {
+    font-size: 1rem;
+    padding: 10px 10px;
+    text-align: center; /* Center the text for mobile */
+    width: 50%; /* Full-width links for mobile */
+  }
+}
+
+/* Landing Page */
+.landingpage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0 100px;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out; /* Background fade-in */
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content-left {
+  max-width: 50%;
+  opacity: 0;
+  transform: translateX(-50px); /* Start off-screen to the left */
+  animation: slideInLeft 1.5s ease-in-out 0.5s forwards; /* Slide-in with delay */
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* End in place */
+  }
+}
+
+.content-left h1 {
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem; /* Larger font size for impact */
+  font-weight: 800;
+  margin-bottom: 0px; /* Increased spacing below the heading */
+  letter-spacing: 0px; /* Tighter letter-spacing for better visual appeal */
+  text-transform: uppercase;
+}
+
+.content-left p {
+  color: rgb(0, 0, 0);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem; /* Slightly larger font for readability */
+  font-weight: 300;
+  margin-bottom: 30px; /* More space between text and button */
+  opacity: 0.9;
+}
+
+.content-left .btn {
+  background: linear-gradient(135deg, blue, darkblue); /* Gradient background for button */
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 14px 35px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  animation: fadeIn 1.5s ease-in-out 0.5s forwards; /* Button fade-in with delay */
+}
+
+.content-left .btn:hover {
+  color: blue;
+  background: linear-gradient(135deg, white, rgb(173, 205, 230)); /* Hover effect with reverse gradient */
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Increased shadow for emphasis */
+}
+
+.content-right {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 70%;
+  opacity: 0;
+  transform: translateX(100vw); /* Start off-screen to the right */
+  animation: slideInRight 1.5s ease-in-out 0.5s forwards; /* Slide-in with delay */
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0); /* End in place */
+  }
+}
+
+.content-right img {
+  max-width: 70%; /* Slightly larger image */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Adjust image cropping for better fit */
+}
+
+/* Hover Effects (example) */
+.content-left:hover,
+.content-right:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .landingpage {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px; /* Reduced padding for smaller screens */
+    height: auto; /* Ensure proper height on small screens */
+  }
+
+  .content-left, .content-right {
+    max-width: 100%;
+    margin-bottom: 30px; /* More space between sections */
+  }
+
+  .content-left h1 {
+    font-size: 2.5rem; /* Smaller font size on mobile */
+    margin-bottom: 20px; /* Adjust margin for better spacing */
+  }
+
+  .content-left p {
+    font-size: 1.1rem; /* Adjusted font size on mobile */
+    margin-bottom: 20px; /* Less space below paragraph */
+  }
+
+  .content-left .btn {
+    padding: 12px 30px; /* Smaller button size for mobile */
+    font-size: 1rem; /* Smaller font size for mobile */
+  }
+
+  .content-right img {
+    max-width: 100%; /* Ensure the image fits the screen width */
+    margin-left: 0; /* Remove left margin on mobile */
+  }
+}
+/* Wrapper Section for the Large Box */
+#about-wrapper {
+  position: relative; /* Ensures stacking for background */
+  width: 100%; /* Full width */
+  padding: 3rem 0; /* Space above and below the content */
+  background: linear-gradient(0deg, #90caf9, rgb(19, 62, 214)); /* Subtle gradient for the box */
+  box-sizing: border-box;
+}
+
+/* About Section */
+#about-me {
+  position: relative; /* Stays within the wrapper */
+  background: linear-gradient(180deg, #ffffff, #a0c4ff); /* White to light blue gradient */
+  padding: 8vw; /* Scales with viewport width */
+  text-align: center;
+  border-radius: 12px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto; /* Center the section with small margins */
+  width: 90%; /* Use most of the viewport width */
+  max-width: 1200px; /* Cap the width for larger screens */
+  box-sizing: border-box;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#about-me:hover {
+  transform: translateY(-5px); /* Subtle floating effect */
+  background-color: #e6f0ff; /* Slightly lighter blue on hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Heading Style */
+#about-me h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem; /* Relative to screen size */
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#about-me h2:hover {
+  color: #004085; /* Deeper blue for more contrast */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Paragraph Styling */
+#about-me p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem; /* Slightly larger for improved readability */
+  color: #444; /* Softer dark gray for better contrast */
+  line-height: 1.8; /* Increased for better text flow */
+  margin: 1.5rem auto; /* More spacing for better visual separation */
+  max-width: 75%; /* Restrict width for optimal readability */
+  letter-spacing: 0.6px; /* Slightly more spacing for cleaner look */
+  opacity: 1; /* Removed opacity change for consistent text visibility */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#about-me p:hover {
+  color: #333; /* Slightly darker shade on hover for subtle emphasis */
+  transform: translateY(-2px); /* Reduced movement for smoother effect */
+}
+
+/* Highlighted Text */
+#about-me p span {
+  color: #ff6b6b;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for standout effect */
+  transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+#about-me p span:hover {
+  color: #e74c3c; /* Slightly darker red for hover */
+  transform: scale(1.08); /* Reduced scale for smoother hover effect */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Enhanced shadow for hover */
+}
+
+
+/* Button Styling */
+#about-me .btn, #about-me .btn-secondary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#about-me .btn:hover, #about-me .btn-secondary:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+#about-me .btn:focus, #about-me .btn-secondary:focus {
+  outline: none;
+  transform: scale(0.98);
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+#about-me .btn:active, #about-me .btn-secondary:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  background-color: #004085;
+}
+
+/* Secondary button styling */
+#about-me .btn-secondary {
+  background-color: #1abc9c;
+}
+
+#about-me .btn-secondary:hover {
+  background-color: #16a085;
+}
+
+#about-me .btn-secondary:active {
+  background-color: #1d7a69;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  #about-me {
+    padding: 5vw;
+  }
+
+  #about-me h2 {
+    font-size: 1.8rem;
+  }
+
+  #about-me p {
+    font-size: 0.9rem;
+  }
+
+  #about-me .btn, #about .btn-secondary {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Project Section */
+#projects {
+  background: linear-gradient(180deg, #ffffff, #a0c4ff); /* Same gradient as #about */
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Project Section Heading */
+#projects h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #007bff; /* Same color as the About section heading */
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#projects h2:hover {
+  color: #004085; /* Deeper blue for more contrast */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  position: relative;
+}
+
+/* Desktop-specific: 4 columns */
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Project Card Styling */
+.project-card {
+  background: linear-gradient(0deg, #ffffff, #a0c4ff); /* Same gradient as #about */
+  color: #333; /* Dark gray for readability */
+  border-radius: 15px; /* Match the heading border radius */
+  border: 3px solid #ffffff;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: auto;
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: translateY(-5px); /* Subtle lift effect */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  background-color: #f0f8ff; /* Light blue for hover consistency */
+}
+
+/* Project Card Image */
+.project-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Image hover effect */
+.project-card img:hover {
+  transform: scale(1.08);
+  filter: brightness(1.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Project Card Title */
+.project-card h3 {
+  margin-top: 15px;
+  font-size: 2rem;
+  color: #3498db;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Heading hover effect */
+.project-card h3:hover {
+  color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Hover effect refinement for project card */
+.project-card:hover {
+  transform: translateY(-8px) rotate(0.5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section#projects {
+    padding: 30px 5%;
+  }
+
+  section#projects h2 {
+    font-size: 2rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .project-card img {
+    max-height: 200px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .project-card {
+    padding: 18px;
+  }
+}
+
+/* Contact Section */
+#contact {
+  background: linear-gradient(180deg, #ffffff, #a0c4ff); /* Same gradient as #about */
+  padding: 10px 10px;
+  text-align: center;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 0; /* Remove space above */
+  margin-bottom: 80px; /* Remove space below */
+  width: 100%;
+  max-width: auto;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#contact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact Section Heading */
+#contact h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #007bff;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#contact h2:hover {
+  transform: scale(1.05);
+  color: #004085;
+}
+
+#contact h2:hover {
+  transform: scale(1.05);
+  color: #004085;
+}
+
+/* Socials Section */
+#socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5-column grid for desktop */
+  gap: 20px; /* Adjust gap for clarity */
+  justify-items: center;
+  width: 100%;
+}
+
+#socials li {
+  background: linear-gradient(0deg, #ffffff, #c7dcff); /* Same gradient as #about */
+  border-radius: 15px;
+  border: 3px solid #ffffff;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 300px; /* Ensure the items do not get too wide */
+}
+
+#socials li:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Social Item Styling */
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.social-item i {
+  font-size: 28px;
+  color: #3498db;
+  margin-bottom: 10px;
+  transition: color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.social-item i:hover {
+  color: #1f78b4;
+  transform: scale(1.2);
+}
+
+.social-item span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Links */
+#socials a {
+  color: #3498db;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+#socials a:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  #socials ul {
+    grid-template-columns: repeat(5, 1fr); /* Keep 5 columns on larger tablets */
+    gap: 15px;
+  }
+
+  #socials li {
+    max-width: 250px; /* Adjust width on medium-sized screens */
+  }
+}
+
+@media (max-width: 768px) {
+  #socials ul {
+    grid-template-columns: repeat(1, 1fr); /* 1 column, 5 rows for mobile */
+    gap: 15px;
+  }
+
+  #socials li {
+    max-width: 90%; /* Adjust max width for mobile devices */
+  }
+
+  .social-item i {
+    font-size: 24px; /* Adjust icon size */
+  }
+
+  .social-item span {
+    font-size: 14px; /* Adjust text size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  #contact {
+    padding: 30px 10px; /* Compact padding for smaller screens */
+  }
+
+  #socials ul {
+    gap: 10px; /* Tighter gap for very small screens */
+  }
+
+  #socials li {
+    max-width: 100%; /* Full width for mobile screens */
+  }
+
+  .social-item i {
+    font-size: 20px; /* Smaller icons */
+  }
+
+  .social-item span {
+    font-size: 12px; /* Smaller text */
+  }
+
+  #socials a {
+    font-size: 14px; /* Adjust font size */
+  }
+}
+
+/* Super Small Devices */
+@media (max-width: 360px) {
+  #contact {
+    padding: 25px 5px; /* Further reduce padding */
+  }
+
+  #socials ul {
+    gap: 8px; /* Even tighter gap for extra small screens */
+  }
+
+  #socials li {
+    max-width: 95%; /* Reduce max-width for smaller screens */
+  }
+
+  .social-item i {
+    font-size: 18px; /* Even smaller icons */
+  }
+
+  .social-item span {
+    font-size: 10px; /* Further reduce text size */
+  }
+
+  #socials a {
+    font-size: 12px; /* Smaller link font size */
+  }
+}
+
+/* Footer */
+footer {
+  background-color: rgb(19, 62, 214);
+  color: white;
+  padding: 20px 10px; /* Default padding */
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  border-top: 3px solid #ffffff;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+footer:hover {
+  background-color: #0080ff; /* Slightly lighter shade on hover */
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Social Links */
+footer .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Default spacing for social links */
+  margin-top: 10px;
+}
+
+footer .social-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px; /* Default font size */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-links a:hover {
+  color: #3498db;
+  transform: scale(1.2); /* Subtle zoom on hover */
+}
+
+/* Footer Text */
+footer p {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.8; /* Slightly reduced opacity */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+footer p:hover {
+  opacity: 1;
+  transform: translateY(-3px); /* Subtle lift effect */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  footer {
+    padding: 15px 8px; /* Reduced padding for smaller screens */
+  }
+
+  footer .social-links {
+    gap: 10px; /* Narrower gap for social links */
+  }
+
+  footer .social-links a {
+    font-size: 16px; /* Slightly smaller font size */
+  }
+
+  footer p {
+    font-size: 13px; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 10px 5px; /* Compact padding for extra small screens */
+  }
+
+  footer .social-links {
+    flex-wrap: wrap; /* Allow wrapping for social links */
+    gap: 8px; /* Smaller gap for tight spaces */
+  }
+
+  footer .social-links a {
+    font-size: 14px; /* Smaller font size for compact view */
+  }
+
+  footer p {
+    font-size: 12px; /* Reduced font size for extra small screens */
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="#" id="scrollToTop">
+        <img src="logo.png" alt="Logo">
+      </a>
+    </div>
+    
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about-wrapper">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="landingpage" id="home">
+    <div class="content-left">
+      <h1>Jon Cedric Lacharon</h1>
+      <p>Innovative Developer & Visionary Designer, Shaping Future-Ready Digital Experiences</p>
+      <a href="#about" class="btn">Explore My Portfolio</a>
+    </div>
+    <div class="content-right">
+      <img src="self.png" alt="Jon Cedric Lacharon">
+    </div>
+  </div>  
+
+  <div id="about-wrapper">
+    <section id="about-me">
+      <h2>About Me</h2>
+      <p>Welcome to my portfolio. I am a passionate and versatile artist with a diverse set of skills spanning <span>graphic design</span>, <span>charcoal art</span>, <span>painting</span>, and <span>layout design</span>. My creative journey is fueled by a love for bringing visual concepts to life, whether through digital media or traditional art forms.</p>
+      <p>Beyond my artistic expertise, I also have a deep appreciation for movement and expression through dance, constantly seeking new ways to fuse creativity and passion in all that I do. My work is a reflection of my commitment to excellence and my ability to adapt and innovate across various artistic disciplines.</p>
+      <p>I believe in the power of art to inspire, provoke, and transform, and I am always looking for new opportunities to collaborate and push the boundaries of my craft. Whether it's creating stunning visuals, designing compelling layouts, or expressing emotion through dance, I strive to bring my full creative potential to every project.</p>
+      <a href="#contact" class="btn">Get in Touch</a>
+      <a href="#projects" class="btn btn-secondary">See My Work</a>
+    </section>
+  </div>
+  
+
+<section id="projects">
+  <h2 data-aos="fade-up">Projects</h2>
+  <div class="project-grid">
+    <!-- Malaysian Concept Project -->
+    <div class="project-card" data-aos="flip-left" data-aos-delay="100">
+      <img src="malaysian.jpg" alt="Motorcycle Malaysian Concept Project">
+      <div class="project-content">
+        <h3>Malaysian Concept</h3>
+        <p>A custom Yamaha Mio i 125 modified with a sleek Malaysian-inspired design. Featuring blue, white, and black accents, this build includes performance upgrades such as Mutakin Enkie wheels, a 330mm rear shock, and a Brembo brake system.</p>
+      </div>
+    </div>
+
+    <!-- Charcoal Art -->
+    <div class="project-card" data-aos="flip-left" data-aos-delay="200">
+      <img src="charcoal.jpg" alt="Charcoal Art">
+      <div class="project-content">
+        <h3>Charcoal Art</h3>
+        <p>Meticulously crafted charcoal artworks that explore shading, texture, and contrast. Each piece tells a powerful emotional story through monochrome depth and delicate contrasts of light and dark.</p>
+      </div>
+    </div>
+
+    <!-- Customized Lanyard -->
+    <div class="project-card" data-aos="flip-left" data-aos-delay="300">
+      <img src="lanyard.jpg" alt="Customized Lanyard Layouts">
+      <div class="project-content">
+        <h3>ID Lace</h3>
+        <p>A refined collection of minimalist lanyard designs tailored for branding and promotional use. Clean layouts combined with modern typography ensure a professional and stylish presentation for corporate or personal events.</p>
+      </div>
+    </div>
+
+    <!-- Doodle Paintings -->
+    <div class="project-card" data-aos="flip-left" data-aos-delay="400">
+      <img src="painting.jpg" alt="Paintings from Boulevard, Pagadian City">
+      <div class="project-content">
+        <h3>Doodle Paintings</h3>
+        <p>A vibrant collection of paintings inspired by the landscapes and culture of Boulevard, Pagadian City. Bold colors and energetic brushstrokes celebrate local life, turning everyday moments into striking works of art.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section id="contact">
+  <h2>Contact</h2>
+
+  <div id="socials">
+    <ul>
+      <li>
+        <div class="social-item">
+          <i class="fas fa-phone-alt"></i> <!-- Phone icon -->
+          <span>Contact Number</span>
+        </div>
+        <a href="cp:09093597365">09093597365</a> <!-- Replace with your actual number -->
+      </li>
+      <li>
+        <div class="social-item">
+          <i class="fab fa-facebook"></i>
+          <span>Cedric (Ced)</span>
+        </div>
+        <a href="https://facebook.com/cedricph.20" target="_blank">facebook.com/cedricph.20</a>
+      </li>
+      <li>
+        <div class="social-item">
+          <i class="fab fa-instagram"></i>
+          <span>Cedric Official</span>
+        </div>
+        <a href="https://www.instagram.com/cedricph.20/" target="_blank">instagram.com/cedricph.20/</a>
+      </li>
+      <li>
+        <div class="social-item">
+          <i class="fab fa-tiktok"></i>
+          <span>Cedric</span>
+        </div>
+        <a href="https://www.tiktok.com/@cedricofficial.ph" target="_blank">tiktok.com/@cedricofficial.ph</a>
+      </li>
+      <li>
+        <div class="social-item">
+          <i class="fas fa-envelope"></i>
+          <span>Jon Cedric Lacharon</span>
+        </div>
+        <a href="mailto:joncedric20@gmail.com">joncedric20@gmail.com</a>
+      </li>
+      
+    </ul>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2024 Jon Cedric Lacharon. All rights reserved.</p>
+  </footer>
+ 
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector('nav ul');
+      nav.classList.toggle('show');
+    }
+  </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <script>
+AOS.init({
+  duration: 1000, // Animation duration in milliseconds
+  once: true, // Animation occurs only once
+});
+  </script>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    window.scrollTo({
+      top: targetElement.offsetTop - 80, // Offset to account for any fixed navbar
+      behavior: "smooth",
+    });
+  });
+});
+  </script>
+  <script>
+    document.getElementById("scrollToTop").addEventListener("click", function (e) {
+  e.preventDefault(); // I-disable ang default behavior sa link
+  window.scrollTo({
+    top: 0, // Pinakataas
+    behavior: "smooth", // Smooth scroll effect
+  });
+});
+
+  </script>
+</body>
+</html>
